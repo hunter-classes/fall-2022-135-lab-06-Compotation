@@ -3,6 +3,10 @@
 #include <cctype>
 
 char shiftChar(char c, int rshift) {
+    // if isLowerCase false it can be other symbol
+    if (!std::isalpha(c)) {
+        return c;
+    }
     bool isLowerCase = c >= 'a' && c <= 'z';
     if (isLowerCase) {
         int relativePosition = abs(c + rshift - 'a') % 26;
@@ -14,11 +18,7 @@ char shiftChar(char c, int rshift) {
 std::string encryptCaesar(std::string plaintext, int rshift) {
     std::string encryptedString;
     for (char plainChar : plaintext) {
-        if (isalpha(plainChar)) {
-            encryptedString += shiftChar(plainChar, rshift);
-        } else {
-            encryptedString += plainChar;
-        }
+        encryptedString += shiftChar(plainChar, rshift);
     }
     return encryptedString;
 }
