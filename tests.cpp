@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "caesar.h"
+#include "vigenere.h"
 
 TEST_CASE("task b") {
     CHECK(shiftChar(';', 1) == ';');
@@ -23,3 +24,11 @@ TEST_CASE("task b") {
     CHECK(encryptCaesar("THIS IS PYTHON.", 7) == "AOPZ PZ WFAOVU.");
     CHECK(encryptCaesar("aoweif.c,oijafwoieefawe", 24) == "ymucgd.a,mghydumgccdyuc");
 }
+
+TEST_CASE("task c") {
+    CHECK(encryptVigenere("Hello, World!", "cake") == "Jevpq, Wyvnd!");
+    CHECK(encryptVigenere("encr:yption", "abc") == "eoer:zrtjqn");
+    CHECK(encryptVigenere("Way to Go!", "f") == "Bfd yt Lt!");
+    CHECK(encryptVigenere("fIOEJOIGVFOEWA 928SDAF FEIWOAJFNVSDVOWIEJFXZVC 83flkdsajfwe", "abcdefghijklmnopqrstuvwxyz") == "fJQHNTONDOYPIN 928GSQW XXCRKXHENWUGZTCPMSPILIQ 83ubbvluebtc");
+}
+
