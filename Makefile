@@ -10,7 +10,7 @@ tests: tests.o caesar.o vigenere.o decrypt.o
 	g++ -o tests tests.o caesar.o vigenere.o decrypt.o
 
 test-ascii: test-ascii.o
-	g++ -o tests-ascii test-ascii.o
+	g++ -o test-ascii test-ascii.o
 
 main.o: main.cpp caesar.h vigenere.o
 

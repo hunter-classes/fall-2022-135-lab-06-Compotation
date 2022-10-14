@@ -4,5 +4,6 @@
 *.gch
 main
 tests
+test-ascii
 .vscode
 .idea
