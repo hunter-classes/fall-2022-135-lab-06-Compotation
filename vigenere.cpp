@@ -14,7 +14,7 @@ void calculateShifts(std::string keyword, int shifts[]) {
 }
 
 std::string encryptVigenere(std::string plaintext, std::string keyword) {
-    int shifts[keyword.size()];
+    int shifts[1000];
     calculateShifts(keyword, shifts);
     return encryptVigenere(plaintext, keyword, shifts);
 }

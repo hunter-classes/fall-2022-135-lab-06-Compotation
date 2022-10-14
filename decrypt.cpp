@@ -13,7 +13,8 @@ void negateArray(int shifts[], int arraySize) {
     }
 }
 std::string decryptVigenere(std::string ciphertext, std::string keyword) {
-    int shifts[keyword.size()];
+    // avoid variable length array error
+    int shifts[1000];
     calculateShifts(keyword, shifts);
     negateArray(shifts, keyword.size());
     return encryptVigenere(ciphertext, keyword, shifts);
