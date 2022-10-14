@@ -14,11 +14,13 @@ test-ascii: test-ascii.o
 
 main.o: main.cpp caesar.h vigenere.o
 
-tests.o: tests.cpp doctest.h caesar.h vigenere.o
+tests.o: tests.cpp doctest.h caesar.h vigenere.h
 
 test-ascii.o: test-ascii.cpp
 
 caesar.o: caesar.cpp caesar.h
+
+vigenere.o: vigenere.cpp vigenere.h
 
 clean:
 	rm -f main.o tests.o test-ascii.o caesar.o vigenere.o
