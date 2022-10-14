@@ -12,9 +12,9 @@ tests: tests.o caesar.o vigenere.o decrypt.o
 test-ascii: test-ascii.o
 	g++ -o test-ascii test-ascii.o
 
-main.o: main.cpp caesar.h vigenere.o
+main.o: main.cpp caesar.h vigenere.h decrypt.h
 
-tests.o: tests.cpp doctest.h caesar.h vigenere.h
+tests.o: tests.cpp doctest.h caesar.h vigenere.h decrypt.h
 
 test-ascii.o: test-ascii.cpp
 
