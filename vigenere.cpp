@@ -16,6 +16,10 @@ void calculateShifts(std::string keyword, int shifts[]) {
 std::string encryptVigenere(std::string plaintext, std::string keyword) {
     int shifts[keyword.size()];
     calculateShifts(keyword, shifts);
+    return encryptVigenere(plaintext, keyword, shifts);
+}
+
+std::string encryptVigenere(std::string plaintext, std::string keyword, int shifts[]) {
     std::string result = "";
     int letterCounter = 0;
     for (char c : plaintext) {

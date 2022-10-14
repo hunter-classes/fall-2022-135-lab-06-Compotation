@@ -1,7 +1,9 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+
 #include "doctest.h"
 #include "caesar.h"
 #include "vigenere.h"
+#include "decrypt.h"
 
 TEST_CASE("task b") {
     CHECK(shiftChar(';', 1) == ';');
@@ -29,9 +31,23 @@ TEST_CASE("task c") {
     CHECK(encryptVigenere("Hello, World!", "cake") == "Jevpq, Wyvnd!");
     CHECK(encryptVigenere("encr:yption", "abc") == "eoer:zrtjqn");
     CHECK(encryptVigenere("Way to Go!", "f") == "Bfd yt Lt!");
-    CHECK(encryptVigenere("fIOEJOIGVFOEWA 928SDAF FEIWOAJFNVSDVOWIEJFXZVC 83flkdsajfwe", "abcdefghijklmnopqrstuvwxyz") == "fJQHNTONDOYPIN 928GSQW XXCRKXHENWUGZTCPMSPILIQ 83ubbvluebtc");
+    CHECK(encryptVigenere("fIOEJOIGVFOEWA 928SDAF FEIWOAJFNVSDVOWIEJFXZVC 83flkdsajfwe",
+                          "abcdefghijklmnopqrstuvwxyz") ==
+          "fJQHNTONDOYPIN 928GSQW XXCRKXHENWUGZTCPMSPILIQ 83ubbvluebtc");
 }
 
 TEST_CASE("task d") {
+    CHECK(decryptCaesar("Bfd yt Lt!", 5) == "Way to Go!");
+    CHECK(decryptCaesar("!!!!...____", 20) == "!!!!...____");
+    CHECK(decryptCaesar("Bpqa qa K11", 8) == "This is C11");
+    CHECK(decryptCaesar("AOPZ PZ WFAOVU.", 7) == "THIS IS PYTHON.");
+    CHECK(decryptCaesar("ymucgd.a,mghydumgccdyuc", 24) == "aoweif.c,oijafwoieefawe");
 
+    CHECK(decryptVigenere("Jevpq, Wyvnd!", "cake") == "Hello, World!");
+    CHECK_EQ(decryptVigenere("eoer:zrtjqn", "abc"), "encr:yption");
+    CHECK_EQ(decryptVigenere("Bfd yt Lt!", "f"), "Way to Go!");
+    CHECK_EQ(decryptVigenere("fJQHNT", "abcdefghijklmnopqrstuvwxyz"), "fIOEJO");
+    CHECK_EQ(decryptVigenere("fJQHNTONDOYPIN 928GSQW XXCRKXHENWUGZTCPMSPILIQ 83ubbvluebtc",
+                             "abcdefghijklmnopqrstuvwxyz"),
+             "fIOEJOIGVFOEWA 928SDAF FEIWOAJFNVSDVOWIEJFXZVC 83flkdsajfwe");
 }
