@@ -32,3 +32,6 @@ TEST_CASE("task c") {
     CHECK(encryptVigenere("fIOEJOIGVFOEWA 928SDAF FEIWOAJFNVSDVOWIEJFXZVC 83flkdsajfwe", "abcdefghijklmnopqrstuvwxyz") == "fJQHNTONDOYPIN 928GSQW XXCRKXHENWUGZTCPMSPILIQ 83ubbvluebtc");
 }
 
+TEST_CASE("task d") {
+
+}
